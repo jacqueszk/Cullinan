@@ -1,0 +1,27 @@
+---
+title: "CDM Daily Plant Correlation"
+output:
+  html_document:
+    df_print: paged
+---
+
+
+```{r include=FALSE}
+CDMDF <- read.csv("~/GitHub/Cullinan/DataSets/CDMDailyRate.csv")
+library(corrplot)
+```
+
+
+
+```{r echo=FALSE}
+
+dfPairs <- CDMDF[,2:4]
+dfPairs.cor<-cor(dfPairs)
+par(mfrow=c(1,2))
+corrplot(dfPairs.cor,method="ellipse")
+corrplot(dfPairs.cor,method="number")
+
+```
+
+
+
